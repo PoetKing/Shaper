@@ -19,6 +19,7 @@ public abstract class Shaper {
 
     private Paint mPaint;
     private Path mPath;
+    private boolean mInverse;
 
     public Shaper(View view) {
         view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
@@ -47,11 +48,23 @@ public abstract class Shaper {
         }
         mPath.reset();
         onShape(left, top, right, bottom, mPath);
-        mPath.setFillType(FillType.INVERSE_EVEN_ODD);
+        if (mInverse) {
+            mPath.setFillType(FillType.WINDING);
+        } else {
+            mPath.setFillType(FillType.INVERSE_WINDING);
+        }
         canvas.drawPath(mPath, mPaint);
     }
 
     public void setBlankColor(int color) {
         mPaint.setColor(color);
+    }
+
+    public void setInverse(boolean inverse) {
+        mInverse = inverse;
+    }
+
+    public Path getPath() {
+        return mPath;
     }
 }

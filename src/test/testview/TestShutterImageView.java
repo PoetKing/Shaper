@@ -51,7 +51,10 @@ public class TestShutterImageView extends LinearLayout {
             public void onClick(View v) {
                 Shaper shaper = shutterImageView.getShaper();
                 if (shaper == null || !(shaper instanceof Shaper2)) {
-                    shutterImageView.setShaper(new Shaper2(shutterImageView));
+                    Shaper2 shaper2 = new Shaper2(shutterImageView);
+                    shaper2.setColumnCount(20);
+                    shaper2.setSpeed(1f);
+                    shutterImageView.setShaper(shaper2);
                 }
                 shutterImageView.openOrClose();
             }
@@ -66,7 +69,10 @@ public class TestShutterImageView extends LinearLayout {
             public void onClick(View v) {
                 Shaper shaper = shutterImageView.getShaper();
                 if (shaper == null || !(shaper instanceof Shaper3)) {
-                    shutterImageView.setShaper(new Shaper3(shutterImageView));
+                    Shaper3 shaper3 = new Shaper3(shutterImageView);
+                    shaper3.setColumnCount(15);
+                    shaper3.setSpeed(1.5f);
+                    shutterImageView.setShaper(shaper3);
                 }
                 shutterImageView.openOrClose();
             }

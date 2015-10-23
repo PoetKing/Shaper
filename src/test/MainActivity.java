@@ -3,6 +3,7 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+import test.testview.TestCleanableImageView;
 import test.testview.TestShaperImageView;
 import test.testview.TestShutterImageView;
 import android.app.Activity;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity {
     {
         testList.add(new TestItem("ShaperImageView", TestShaperImageView.class));
         testList.add(new TestItem("ShutterImageView", TestShutterImageView.class));
+        testList.add(new TestItem("CleanableImageView", TestCleanableImageView.class));
     }
 
     @Override
